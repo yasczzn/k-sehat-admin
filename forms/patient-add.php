@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
                     <h1 class="mt-4">Add Patient</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="admin-dashboard.php">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="vaccine-stock-table.php">Patient Table</a></li>
+                            <li class="breadcrumb-item"><a href="patient.php">Patient Table</a></li>
                             <li class="breadcrumb-item active">Add Patient</li>
                         </ol>
 

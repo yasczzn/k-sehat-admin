@@ -113,7 +113,7 @@
                                 <div class="validate"></div>
                             </div>
                             <input type="submit" value="Update" name="update" class="btn btn-warning btn-user" />
-                            <a href='vaccine-stock-table.php'>
+                            <a href='user-table.php'>
                                 <input type='button' value='Cancel' class='btn btn-danger btn-user'>
                             </a>
                         <hr>

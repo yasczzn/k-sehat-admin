@@ -125,8 +125,7 @@ if (!isset($_SESSION['username'])) {
                                             
                                             $no=1;
                                             $sql = "SELECT * FROM vaccination
-                                            INNER JOIN patient ON vaccination.userRegNum = patient.userRegNum
-                                            INNER JOIN vaccine_stock ON vaccination.vaccineID = vaccine_stock.vaccineID";
+                                            INNER JOIN patient ON vaccination.userRegNum = patient.userRegNum";
 
                                             $pulldata = mysqli_query($conn, $sql);
                                             while ($display = mysqli_fetch_array($pulldata)){

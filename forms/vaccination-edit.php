@@ -8,8 +8,8 @@
 
     include '../function/connection.php';
 
-    $sql = mysqli_query($conn, "SELECT * FROM vaccination v, patient p, vaccine_stock vs WHERE 
-    v.userRegNum = p.userRegNum AND v.vaccineID = vs.vaccineID AND nomor='$_GET[update]'");
+    $sql = mysqli_query($conn, "SELECT * FROM vaccination v, patient p, WHERE 
+    v.userRegNum = p.userRegNum AND nomor='$_GET[update]'");
     $data = mysqli_fetch_array($sql);   
 
 ?>
