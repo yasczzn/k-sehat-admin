@@ -1,6 +1,6 @@
 <?php 
  
-    include '../function/connection.php';
+    include 'function/connection.php';
     
     error_reporting(0);
     
