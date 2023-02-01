@@ -109,7 +109,6 @@
                                             <th>Email</th>
                                             <th>Phone Number</th>
                                             <th>Address</th>
-                                            <th>Vaccine Status</th>
                                           </tr>
                                     </thead>
                                     <tfoot>
@@ -123,7 +122,6 @@
                                             <th>Email</th>
                                             <th>Phone Number</th>
                                             <th>Address</th>
-                                            <th>Vaccine Status</th>
                                           </tr>
                                     </tfoot>
                                     <tbody>
@@ -146,7 +144,6 @@
                                                 <td>$display[email]</td>
                                                 <td>$display[phoneNum]</td>
                                                 <td>$display[address]</td>
-                                                <td>$display[patientStatus]</td>
                                                 <td>
                                                     <a href='patient-edit.php?update=$display[userRegNum]' type='button' value='Update' class='btn btn-primary'>Update</a>
                                                     <a href='?delete=$display[userRegNum]' onClick=\"return confirm('Proceed to delete data?');\">

@@ -9,8 +9,6 @@ $gender = "";
 $email = "";
 $phoneNum = "";
 $address = "";
-$patientStatus = "";
-$price = "";
 
 $errorMessage = "";
 $successMessage = "";
@@ -23,18 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $email = $_POST['email'];
     $phoneNum = $_POST['phoneNum'];
     $address = $_POST['address'];
-    $patientStatus = $_POST['patientStatus'];
-    $price = $_POST['price'];
 
     do {
         if (empty($ID) || empty($name) || empty($doB) || empty($gender) || empty($email) || empty($phoneNum) || 
-        empty($address) || empty($patientStatus) || empty($price)) {
+        empty($address)) {
             $errorMessage = "All the fields are required";
             break;
         }
 
-        $sql = "INSERT INTO patient(ID, name, doB, gender, email, phoneNum, address, patientStatus, price)".
-                "VALUES ('$ID', '$name', '$doB', '$gender', '$email', '$phoneNum', '$address', '$price')";
+        $sql = "INSERT INTO patient(ID, name, doB, gender, email, phoneNum, address)".
+                "VALUES ('$ID', '$name', '$doB', '$gender', '$email', '$phoneNum', '$address')";
         $result = $conn->query($sql);
 
         if (!$result) {
@@ -49,8 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $email = "";
         $phoneNum = "";
         $address = "";
-        $patientStatus = "";
-        $price = "";
 
         echo "<script>alert('Patient data submitted!')
         document.location = 'patient-table.php'</script>";
@@ -191,24 +185,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control form-control-user" value="<?php echo $address; ?>" name="address" placeholder="Address" required>
                             <label for="inputAddress">Address</label>
-                            <div class="validate"></div>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <select aria-label="VaccineType" title="status-choice" type="text" class="form-control" name="patientStatus" id="patientStatus" placeholder="Vaccine Type" onchange="priceTotal(this.value)" required>
-                                <option value="" disabled selected>Select vaccination</option>
-                                <option value="Dosage 1" <?php echo $patientStatus == 'Dosage 1'; ?>>Dosage 1</option>
-                                <option value="Dosage 2" <?php echo $patientStatus == 'Dosage 2'; ?>>Dosage 2</option>
-                                <option value="Dosage 3" <?php echo $patientStatus == 'Dosage 3'; ?>>Dosage 3</option>
-                                <option value="Booster 1" <?php echo $patientStatus == 'Booster 1'; ?>>Booster 1</option>
-                                <option value="Booster 2" <?php echo $patientStatus == 'Booster 2'; ?>>Booster 2</option>
-                                <option value="Booster 3" <?php echo $patientStatus == 'Booster 3'; ?>>Booster 3</option>
-                            </select>
-                            <label for="inputStatus">Vaccine Type</label>
-                            <div class="validate"></div>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control form-control-user" value="<?php echo $price; ?>" name="price" id="price" placeholder="Price" readonly>
-                            <label for="inputPrice">Price</label>
                             <div class="validate"></div>
                         </div>
                         <input type="submit" value="Submit" name="submit" class="btn btn-success btn-user ms-3"/>

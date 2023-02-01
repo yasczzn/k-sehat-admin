@@ -103,8 +103,16 @@ if (!isset($_SESSION['username'])) {
                                             <th>No</th>
                                             <th>ID</th>
                                             <th>Patient Name</th>
+                                            <th>Date of Birth</th>
+                                            <th>Gender</th>
+                                            <th>Email</th>
+                                            <th>Phone Number</th>
+                                            <th>Address</th>
                                             <th>Vaccine Type</th>
-                                            <th>Vaccine Date</th>
+                                            <th>Vaccination date</th>
+                                            <th>Price</th>
+                                            <th>Payment</th>
+                                            <th>Payment Status</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -113,8 +121,16 @@ if (!isset($_SESSION['username'])) {
                                             <th>No</th>
                                             <th>ID</th>
                                             <th>Patient Name</th>
+                                            <th>Date of Birth</th>
+                                            <th>Gender</th>
+                                            <th>Email</th>
+                                            <th>Phone Number</th>
+                                            <th>Address</th>
                                             <th>Vaccine Type</th>
-                                            <th>Vaccine Date</th>
+                                            <th>Vaccination date</th>
+                                            <th>Price</th>
+                                            <th>Payment</th>
+                                            <th>Payment Status</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -135,8 +151,16 @@ if (!isset($_SESSION['username'])) {
                                                 <td>$display[nomor]</td>
                                                 <td>$display[ID]</td>
                                                 <td>$display[name]</td>
+                                                <td>$display[doB]</td>
+                                                <td>$display[gender]</td>
+                                                <td>$display[email]</td>
+                                                <td>$display[phoneNum]</td>
+                                                <td>$display[address]</td>
                                                 <td>$display[vaccineType]</td>
-                                                <td>$display[vaccineDate]</td>
+                                                <td>$display[vaccinationDate]</td>
+                                                <td>$display[price]</td>
+                                                <td>$display[payment]</td>
+                                                <td><input type='checkbox' name='data.$no'/></td>
                                                 <td>
                                                 <a href='vaccination-edit.php?update=$display[nomor]' type='button' value='Update' class='btn btn-primary'>Update</a>
                                                 <a href='?delete=$display[nomor]' onClick=\"return confirm('Proceed to delete data?');\">

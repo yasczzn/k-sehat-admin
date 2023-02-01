@@ -98,35 +98,54 @@
                                 <input class="form-control form-control-user" value="<?php echo $data['nomor']; ?>" name="No" placeholder="No" readonly>
                                 <label for="nomor">No</label>
                             </div>
-                            <div class="form-floating mb-3 mx-3">
-                                <select aria-label="ID" title="type-choice" type="text" class="form-control" name="userRegNum" required>
-                                    <?php
-                                        echo "<option value=$data[userRegNum]>$data[name]</option>";
-                                        $query = mysqli_query($conn, "SELECT * FROM patient");
-                                        while ($data = mysqli_fetch_array($query)){
-                                            echo "<option value=$data[userRegNum]>$data[name]</option>";
-                                        }
-                                    ?>
-                                </select>
-                                <label for="inputPatientName">Patient Name</label>
-                                <div class="validate"></div>
-                            </div>
-                            <div class="form-floating mb-3 mx-3">
-                                <select aria-label="Type" title="type-choice" type="text" class="form-control" name="vaccineID" required>
-                                    <?php
-                                        echo "<option value=$data[vaccineID]>$data[vaccineType]</option>";
-                                        $query = mysqli_query($conn, "SELECT * FROM vaccine_stock");
-                                        while ($data = mysqli_fetch_array($query)){
-                                            echo "<option value=$data[vaccineID]>$data[vaccineType]</option>";
-                                        }
-                                    ?>
-                                </select>
-                                <label for="inputVaccineType">Vaccine Type</label>
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control form-control-user" value="<?php echo $data['ID']; ?>" name="ID" placeholder="ID" required>
+                                <label for="inputID">ID</label>
                                 <div class="validate"></div>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="date" class="form-control form-control-user" value="<?php echo date('Y-m-d', strtotime($data['vaccineDate'])); ?>" id="vaccineDate" required>
-                                <label for="inputVaccinationDate">Vaccination Date</label>
+                                <input type="text" class="form-control form-control-user" value="<?php echo $data['name']; ?>" name="name" placeholder="Name" required>
+                                <label for="inputName">Name</label>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-control-user" value="<?php echo $data['doB']; ?>" name="doB" placeholder="Date of Birth" required>
+                                <label for="inputDoB">Date of Birth</label>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select aria-label="Gender" title="gender-choice" type="text" class="form-control" name="gender" placeholder="Gender" required>
+                                    <option value="male" <?php if($data['gender']== 'male'){ echo 'selected'; }?>>male</option>
+                                    <option value="female" <?php if($data['gender']== 'female'){ echo 'selected'; }?>>female</option>
+                                </select>
+                                <label for="inputGender">Gender</label>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control form-control-user" value="<?php echo $data['email']; ?>" name="email" placeholder="Email" required>
+                                <label for="inputEmail">Email</label>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control form-control-user" value="<?php echo $data['phoneNum']; ?>" name="phoneNum" placeholder="Phone Number" required>
+                                <label for="inputPhoneNum">Phone Number</label>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-control-user" value="<?php echo $data['address']; ?>" name="address" placeholder="Address" required>
+                                <label for="inputAddress">Address</label>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select aria-label="Status" title="status-choice" type="text" class="form-control" name="patientStatus" id="patientStatus" placeholder="Vaccine Status" required>
+                                    <option value="Dosage 1" <?php if($data['patientStatus']== 'Dosage 1'){ echo 'selected'; }?>>Dosage 1</option>
+                                    <option value="Dosage 2" <?php if($data['patientStatus']== 'Dosage 2'){ echo 'selected'; }?>>Dosage 2</option>
+                                    <option value="Dosage 3" <?php if($data['patientStatus']== 'Dosage 3'){ echo 'selected'; }?>>Dosage 3</option>
+                                    <option value="Booster 1" <?php if($data['patientStatus']== 'Booster 1'){ echo 'selected'; }?>>Booster 1</option>
+                                    <option value="Booster 2" <?php if($data['patientStatus']== 'Booster 2'){ echo 'selected'; }?>>Booster 2</option>
+                                    <option value="Booster 3" <?php if($data['patientStatus']== 'Booster 3'){ echo 'selected'; }?>>Booster 3</option>
+                                </select>
+                                <label for="inputStatus">Status</label>
                                 <div class="validate"></div>
                             </div>
                         <input type="submit" value="Update" name="update" class="btn btn-warning btn-user" />

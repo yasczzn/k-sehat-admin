@@ -135,19 +135,6 @@
                                 <label for="inputAddress">Address</label>
                                 <div class="validate"></div>
                             </div>
-                            <div class="form-floating mb-3">
-                                <select aria-label="Status" title="status-choice" type="text" class="form-control" name="patientStatus" id="patientStatus" placeholder="Vaccine Status" required>
-                                    <option value="not vaccinated" <?php if($data['patientStatus']== 'not vaccinated'){ echo 'selected'; }?>>not vaccinated</option>
-                                    <option value="Dosage 1" <?php if($data['patientStatus']== 'Dosage 1'){ echo 'selected'; }?>>Dosage 1</option>
-                                    <option value="Dosage 2" <?php if($data['patientStatus']== 'Dosage 2'){ echo 'selected'; }?>>Dosage 2</option>
-                                    <option value="Dosage 3" <?php if($data['patientStatus']== 'Dosage 3'){ echo 'selected'; }?>>Dosage 3</option>
-                                    <option value="Booster 1" <?php if($data['patientStatus']== 'Booster 1'){ echo 'selected'; }?>>Booster 1</option>
-                                    <option value="Booster 2" <?php if($data['patientStatus']== 'Booster 2'){ echo 'selected'; }?>>Booster 2</option>
-                                    <option value="Booster 3" <?php if($data['patientStatus']== 'Booster 3'){ echo 'selected'; }?>>Booster 3</option>
-                                </select>
-                                <label for="inputStatus">Status</label>
-                                <div class="validate"></div>
-                            </div>
                         <input type="submit" value="Update" name="update" class="btn btn-warning btn-user" />
                         <a href='patient-table.php'>
                             <input type='button' value='Cancel' class='btn btn-danger btn-user'>
