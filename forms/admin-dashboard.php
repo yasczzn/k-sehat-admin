@@ -6,49 +6,49 @@
         header("Location: login.php");
     }
     
-    include '../function/connection.php';
+    // include '../function/connection.php';
 
-    $sql = mysqli_query($conn, "SELECT * FROM vaccination v, patient p, vaccine_stock vs WHERE 
-    v.userRegNum = p.userRegNum AND v.vaccineID = vs.vaccineID");
-    $data = mysqli_fetch_array($sql); 
+    // $sql = mysqli_query($conn, "SELECT * FROM vaccination v, patient p, vaccine_stock vs WHERE 
+    // v.userRegNum = p.userRegNum AND v.vaccineID = vs.vaccineID");
+    // $data = mysqli_fetch_array($sql); 
 
-    $userRegNum = "";
-    $vaccineID = "";
-    $date = "";
+    // $userRegNum = "";
+    // $vaccineID = "";
+    // $date = "";
 
-    $errorMessage = "";
-    $successMessage = "";
+    // $errorMessage = "";
+    // $successMessage = "";
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
-        $userRegNum = $_POST['userRegNum'];
-        $vaccineID = $_POST['vaccineID'];
-        $date = $_POST['date'];
+    // if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
+    //     $userRegNum = $_POST['userRegNum'];
+    //     $vaccineID = $_POST['vaccineID'];
+    //     $date = $_POST['date'];
 
-        do {
-            if (empty($userRegNum) || empty($vaccineID) || empty($date)) {
-                $errorMessage = "All the fields are required";
-                break;
-            }
+    //     do {
+    //         if (empty($userRegNum) || empty($vaccineID) || empty($date)) {
+    //             $errorMessage = "All the fields are required";
+    //             break;
+    //         }
 
-            $sql = "INSERT INTO vaccination(userRegNum, vaccineID, date)".
-                    "VALUES ('$userRegNum', '$vaccineID', '$date')";
-            $result = $conn->query($sql);
+    //         $sql = "INSERT INTO vaccination(userRegNum, vaccineID, date)".
+    //                 "VALUES ('$userRegNum', '$vaccineID', '$date')";
+    //         $result = $conn->query($sql);
 
-            if (!$result) {
-                $errorMessage = "Invalid query" . $conn->error;
-                break;
-            }
+    //         if (!$result) {
+    //             $errorMessage = "Invalid query" . $conn->error;
+    //             break;
+    //         }
 
-            $userRegNum = "";
-            $vaccineID = "";
-            $date = "";
+    //         $userRegNum = "";
+    //         $vaccineID = "";
+    //         $date = "";
 
-            echo "<script>alert('Vaccination data submitted!')
-            document.location = 'vaccination-table.php'</script>";
+    //         echo "<script>alert('Vaccination data submitted!')
+    //         document.location = 'vaccination-table.php'</script>";
 
-        } while (false);
+    //     } while (false);
 
-    }
+    // }
 ?>
 
 <!DOCTYPE html>
