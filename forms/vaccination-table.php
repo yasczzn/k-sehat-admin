@@ -164,10 +164,8 @@ if (isset($_POST['paid'])) {
                                             include '../function/connection.php';
                                             
                                             $no=1;
-                                            $sql = "SELECT * FROM vaccination
-                                            INNER JOIN patient ON vaccination.userRegNum = patient.userRegNum";
 
-                                            $pulldata = mysqli_query($conn, $sql);
+                                            $pulldata = mysqli_query($conn, "SELECT * FROM vaccination");
                                             while ($display = mysqli_fetch_array($pulldata)){
                                             echo "
                                             <tr>
