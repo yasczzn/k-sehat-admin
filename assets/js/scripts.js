@@ -23,6 +23,8 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
+    document.getElementById('vaccinationDate').valueAsDate = new Date();
+
     function clearform() {
         document.getElementById('form').reset();
     }
