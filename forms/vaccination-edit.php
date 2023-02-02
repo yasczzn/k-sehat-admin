@@ -148,11 +148,40 @@
                                 <label for="inputStatus">Status</label>
                                 <div class="validate"></div>
                             </div>
-                        <input type="submit" value="Update" name="update" class="btn btn-warning btn-user" />
-                        <a href='vaccination-table.php'>
-                            <input type='button' value='Cancel' class='btn btn-danger btn-user'>
-                        </a>
-                        <hr>
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control form-control-user" value="<?php echo date('Y-m-d', strtotime($data['vaccinationDate'])); ?>" id="vaccinationDate" required>
+                                <label for="inputVaccinationDate">Vaccination Date</label>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-control-user" value="<?php echo $data['price']; ?>" name="price" id="price" placeholder="Price" readonly>
+                                <label for="inputPrice">Price</label>
+                                <div class="validate"></div>
+                            </div>
+                            <fieldset>
+                                <legend class="form-floating mb-3">Please select a payment method</legend>
+                                <div>
+                                    <input type="radio" id="bca" name="bca" value="BCA" <?php if($data['payment']== 'bca'){ echo 'selected'; }?>>
+                                    <label for="bca">BCA</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="bsi" name="bsi" value="BSI" <?php if($data['payment']== 'bsi'){ echo 'selected'; }?>>
+                                    <label for="bsi">BSI</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="gopay" name="gopay" value="GoPay" <?php if($data['payment']== 'gopay'){ echo 'selected'; }?>>
+                                    <label for="gopay">GoPay</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="dana" name="dana" value="Dana" <?php if($data['payment']== 'dana'){ echo 'selected'; }?>>
+                                    <label for="dana">Dana</label>
+                                </div>
+                            </fieldset>
+                                <input type="submit" value="Update" name="update" class="btn btn-warning btn-user" />
+                                <a href='vaccination-table.php'>
+                                    <input type='button' value='Cancel' class='btn btn-danger btn-user'>
+                                </a>
+                            <hr>
                         </form>
                     </div>
                 </main>
@@ -197,5 +226,29 @@
         <script src="../assets/js/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="../assets/js/datatables-simple-demo.js"></script>
+
+        <script>
+            function priceTotal(val){
+            var totalPrice;
+            if(val == 'Dosage 1'){
+            totalPrice = 45000;
+            } else if(val == 'Dosage 2'){
+            totalPrice = 50000;
+            } else if(val == 'Dosage 3'){
+            totalPrice = 55000;
+            } else if(val == 'Booster 1'){
+            totalPrice = 60000;
+            } else if(val == 'Booster 2'){
+            totalPrice = 65000;
+            } else if(val == 'Booster 3'){
+            totalPrice = 70000;
+            }
+            //display price
+            var disPrice = document.getElementById('price');
+            disPrice.value = totalPrice;
+
+        }
+        </script>
+
     </body>
 </html>

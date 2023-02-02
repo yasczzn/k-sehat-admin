@@ -5,6 +5,30 @@ session_start();
 if (!isset($_SESSION['username'])) {
     header("Location: login.php");
 }
+
+$paid = "";
+
+if (isset($_POST['paid'])) {
+
+    $paid = $_POST['paid'] = true;
+
+    mysqli_query($conn, "UPDATE patient SET 
+    ID = '',
+    name = '',
+    doB = '',
+    gender = '',
+    email = '',
+    phoneNum = '', 
+    address = '',    
+    vaccineType = '''
+    vaccinationDate = '',
+    price = '',
+    payment = '',
+    paid = '$_POST[paid]', WHERE nomor =$_GET[update]");
+
+    echo "<meta http-equiv='refresh' content='0'>";
+
+  }
  
 ?>
 
@@ -185,6 +209,9 @@ if (!isset($_SESSION['username'])) {
                                 ?>
                             </div>
                         </div>
+                    </div>
+                    <div class="ms-5">
+                        <input type="submit" value="Update" name="update" id="update_button" class="btn btn-primary">Refresh</input>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
