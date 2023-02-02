@@ -137,7 +137,7 @@
                                 <div class="validate"></div>
                             </div>
                             <div class="form-floating mb-3">
-                                <select aria-label="Status" title="status-choice" type="text" class="form-control" name="patientStatus" id="patientStatus" placeholder="Vaccine Status" required>
+                                <select aria-label="Status" title="type-choice" type="text" class="form-control" name="vaccineType" id="vaccineType" placeholder="Vaccine Type" onchange="priceTotal(this.value)"" required>
                                     <option value="Dosage 1" <?php if($data['patientStatus']== 'Dosage 1'){ echo 'selected'; }?>>Dosage 1</option>
                                     <option value="Dosage 2" <?php if($data['patientStatus']== 'Dosage 2'){ echo 'selected'; }?>>Dosage 2</option>
                                     <option value="Dosage 3" <?php if($data['patientStatus']== 'Dosage 3'){ echo 'selected'; }?>>Dosage 3</option>
