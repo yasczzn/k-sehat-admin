@@ -236,5 +236,6 @@ if (isset($_POST['paid'])) {
         <script src="../assets/js/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="../assets/js/datatables-simple-demo.js"></script>
+        <script src="../assets/js/datatables-demo.js"></script>
     </body>
 </html>
