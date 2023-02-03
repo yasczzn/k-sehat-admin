@@ -156,8 +156,7 @@
                     gender = '$_POST[gender]',
                     email = '$_POST[email]',
                     phoneNum = '$_POST[phoneNum]', 
-                    address = '$_POST[address]',    
-                    patientStatus = '$_POST[patientStatus]' WHERE userRegNum =$_GET[update]");       
+                    address = '$_POST[address]' WHERE userRegNum =$_GET[update]");       
                     
                     echo "<script>alert('Patient data updated!')
                     document.location = 'patient-table.php'</script>";                                               

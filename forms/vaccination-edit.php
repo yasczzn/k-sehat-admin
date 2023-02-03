@@ -8,8 +8,7 @@
 
     include '../function/connection.php';
 
-    $sql = mysqli_query($conn, "SELECT * FROM vaccination v, patient p, WHERE 
-    v.userRegNum = p.userRegNum AND nomor='$_GET[update]'");
+    $sql = mysqli_query($conn, "SELECT * FROM vaccination WHERE nomor='$_GET[update]'");
     $data = mysqli_fetch_array($sql);   
 
 ?>
@@ -161,19 +160,19 @@
                             <fieldset>
                                 <legend class="form-floating mb-3">Please select a payment method</legend>
                                 <div>
-                                    <input type="radio" id="bca" name="bca" value="BCA" <?php if($data['payment']== 'bca'){ echo 'selected'; }?>>
+                                    <input type="radio" id="bca" name="payment" value="BCA" <?php if($data['payment']== 'bca'){ echo 'selected'; }?>>
                                     <label for="bca">BCA</label>
                                 </div>
                                 <div>
-                                    <input type="radio" id="bsi" name="bsi" value="BSI" <?php if($data['payment']== 'bsi'){ echo 'selected'; }?>>
+                                    <input type="radio" id="bsi" name="payment" value="BSI" <?php if($data['payment']== 'bsi'){ echo 'selected'; }?>>
                                     <label for="bsi">BSI</label>
                                 </div>
                                 <div>
-                                    <input type="radio" id="gopay" name="gopay" value="GoPay" <?php if($data['payment']== 'gopay'){ echo 'selected'; }?>>
+                                    <input type="radio" id="gopay" name="payment" value="GoPay" <?php if($data['payment']== 'gopay'){ echo 'selected'; }?>>
                                     <label for="gopay">GoPay</label>
                                 </div>
                                 <div>
-                                    <input type="radio" id="dana" name="dana" value="Dana" <?php if($data['payment']== 'dana'){ echo 'selected'; }?>>
+                                    <input type="radio" id="dana" name="payment" value="Dana" <?php if($data['payment']== 'dana'){ echo 'selected'; }?>>
                                     <label for="dana">Dana</label>
                                 </div>
                             </fieldset>
@@ -192,9 +191,17 @@
 
                     mysqli_query($conn, "UPDATE patient SET 
                     nomor = '$_POST[nomor]',
-                    userRegNum = '$_POST[userRegNum]', 
-                    vaccineID = '$_POST[vaccineID]',    
-                    vaccineDate = '$_POST[vaccineDate]' WHERE nomor =$_GET[update]");       
+                    ID = '$_POST[ID]', 
+                    name = '$_POST[name]',    
+                    doB = '$_POST[doB]', 
+                    gender = '$_POST[gender]',
+                    email = '$_POST[email]', 
+                    phoneNum = '$_POST[phoneNum]',    
+                    address = '$_POST[address]', 
+                    vaccineType = '$_POST[vaccineType]',
+                    vaccinationDate = '$_POST[vaccinationDate]', 
+                    price = '$_POST[price]',    
+                    payment = '$_POST[payment]' WHERE nomor =$_GET[update]");     
                     
                     echo "<script>alert('Vaccination data updated!')
                     document.location = 'vaccination-table.php'</script>";                                               
