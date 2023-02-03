@@ -209,7 +209,7 @@ if (isset($_POST['paid'])) {
                         </div>
                     </div>
                     <div class="ms-5">
-                        <input type="submit" value="Update" name="update" id="update_button" class="btn btn-primary">Refresh</input>
+                        <input type="submit" value="Refresh" name="update" id="update_button" class="btn btn-primary"/>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
