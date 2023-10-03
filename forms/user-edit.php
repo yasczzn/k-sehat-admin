@@ -123,17 +123,26 @@
 
                 <?php
 
-                if (isset($_POST['update'])) {
+                    if (isset($_POST['update'])) {
+                        $ID = $_POST['ID'];
+                        $email = $_POST['email'];
+                        $password = md5($_POST['password']);
+                        $username = $_POST['username'];
 
-                    mysqli_query($conn, "UPDATE user_admin SET 
-                    ID = '$_POST[ID]',
-                    email = '$_POST[email]',
-                    password = 'md5($_POST[password])',  
-                    username = '$_POST[username]' WHERE ID =$_GET[update]");       
-                    
-                    echo "<script>alert('User data updated!')
-                    document.location = 'user-table.php'</script>";                                               
-                }
+                        do {                    
+                            $update = "UPDATE user_admin SET ID='$ID', email='$email', password='$password', name='$name'  WHERE ID =$_GET[update]";
+                            $result = mysqli_query($conn, $update);
+
+                            if ($result) {
+                                echo "<script>alert('User data updated!')
+                                document.location = 'user-table.php'</script>"; 
+                            } else {
+                                $errorMessage = "Invalid query" . $conn->error;
+                                break;
+                            }   
+                                                                
+                        } while (false);
+                    }    
 
                 ?>
 

@@ -187,25 +187,37 @@
 
                 <?php
 
-                if (isset($_POST['update'])) {
+                    if (isset($_POST['update'])) {
+                        $nomor = $_POST['nomor'];
+                        $ID = $_POST['ID'];
+                        $name = $_POST['name'];
+                        $doB = $_POST['doB'];
+                        $gender = $_POST['gender'];
+                        $email = $_POST['email'];
+                        $phoneNum = $_POST['phoneNum'];
+                        $address = $_POST['address'];
+                        $vaccineType = $_POST['vaccineType'];
+                        $vaccinationDate = $_POST['vaccinationDate']; 
+                        $price = $_POST['price'];    
+                        $payment = $_POST['payment'];
 
-                    mysqli_query($conn, "UPDATE patient SET 
-                    nomor = '$_POST[nomor]',
-                    ID = '$_POST[ID]', 
-                    name = '$_POST[name]',    
-                    doB = '$_POST[doB]', 
-                    gender = '$_POST[gender]',
-                    email = '$_POST[email]', 
-                    phoneNum = '$_POST[phoneNum]',    
-                    address = '$_POST[address]', 
-                    vaccineType = '$_POST[vaccineType]',
-                    vaccinationDate = '$_POST[vaccinationDate]', 
-                    price = '$_POST[price]',    
-                    payment = '$_POST[payment]' WHERE nomor =$_GET[update]");     
-                    
-                    echo "<script>alert('Vaccination data updated!')
-                    document.location = 'vaccination-table.php'</script>";                                               
-                }
+                        do {                    
+                            $update = "UPDATE patient SET nomor='$nomor', ID='$ID', name='$name', 
+                                    doB='$doB', gender='$gender', email='$email', phoneNum='$phoneNum',
+                                    address ='$address', vaccineType='$vaccineType', vaccinationDate='$vaccinationDate',
+                                    price='$price', payment='$payment' WHERE nomor =$_GET[update]";
+                            $result = mysqli_query($conn, $update);
+
+                            if ($result) {
+                                echo "<script>alert('Vaccination data updated!')
+                                document.location = 'vaccination-table.php'</script>"; 
+                            } else {
+                                $errorMessage = "Invalid query" . $conn->error;
+                                break;
+                            }   
+                                                                
+                        } while (false);
+                    } 
 
                 ?>
 

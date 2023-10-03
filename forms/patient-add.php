@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
             break;
         }
 
-        $sql = "INSERT INTO patient(ID, name, doB, gender, email, phoneNum, address)".
-                "VALUES ('$ID', '$name', '$doB', '$gender', '$email', '$phoneNum', '$address')";
+        $sql = "INSERT INTO patient(ID, name, doB, gender, email, phoneNum, address)
+                VALUES ('$ID', '$name', '$doB', '$gender', '$email', '$phoneNum', '$address')";
         $result = $conn->query($sql);
 
         if (!$result) {

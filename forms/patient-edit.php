@@ -146,21 +146,32 @@
 
                 <?php
 
-                if (isset($_POST['update'])) {
+                    if (isset($_POST['update'])) {
+                        $userRegNum = $_POST['userRegNum'];
+                        $ID = $_POST['ID'];
+                        $name = $_POST['name'];
+                        $doB = $_POST['doB'];
+                        $gender = $_POST['gender'];
+                        $email = $_POST['email'];
+                        $phoneNum = $_POST['phoneNum'];
+                        $address = $_POST['address'];
 
-                    mysqli_query($conn, "UPDATE patient SET 
-                    userRegNum = '$_POST[userRegNum]',
-                    ID = '$_POST[ID]',
-                    name = '$_POST[name]',
-                    doB = '$_POST[doB]',
-                    gender = '$_POST[gender]',
-                    email = '$_POST[email]',
-                    phoneNum = '$_POST[phoneNum]', 
-                    address = '$_POST[address]' WHERE userRegNum =$_GET[update]");       
-                    
-                    echo "<script>alert('Patient data updated!')
-                    document.location = 'patient-table.php'</script>";                                               
-                }
+                        do {                    
+                            $update = "UPDATE patient SET userRegNum='$userRegNum', ID='$ID', name='$name', 
+                                    doB='$doB', gender='$gender', email='$email', phoneNum='$phoneNum',
+                                    address ='$address' WHERE userRegNum =$_GET[update]";
+                            $result = mysqli_query($conn, $update);
+            
+                            if ($result) {
+                                echo "<script>alert('Patient data updated!')
+                                document.location = 'patient-table.php'</script>"; 
+                            } else {
+                                $errorMessage = "Invalid query" . $conn->error;
+                                break;
+                            }   
+                                                                
+                        } while (false);
+                    }    
 
                 ?>
 
